@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
         trim:true,
         lowercase:true, 
         minLength:3,
-        maxLength:10
+        maxLength:50
     },
     password:{
         type:String, 
@@ -44,7 +44,7 @@ const accountSchema = new mongoose.Schema({
         required:true,
     },balance:{
         type:Number,
-        required:truem
+        required:true,
     }
 });
 

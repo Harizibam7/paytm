@@ -8,9 +8,10 @@ const {authMiddleware} = require('../middleware');
 
 const signupBody = zod.object({
     username: zod.string().email(),
+    password:zod.string(),
     firstName:zod.string(),
     lastName:zod.string(),
-    password:zod.string(),
+   
 });
 
 const signinBody = zod.object({
@@ -31,7 +32,7 @@ router.post("/signup", async(req,res)=>{
             message:"Incorrect input" 
         })
     }
-    const existingUser = User.findOne({
+    const existingUser = await User.findOne({
         username:req.body.username
     })
     if(existingUser) {
